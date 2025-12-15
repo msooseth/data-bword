@@ -21,7 +21,7 @@ Extra-Source-Files:
 
 Tested-With: GHC==7.6.3, GHC==7.8.4, GHC==7.10.3, GHC==8.0.2, GHC==8.2.2,
              GHC==8.4.4, GHC==8.6.5, GHC==8.8.4, GHC==8.10.7,
-             GHC==9.0.2, GHC==9.2.7, GHC==9.4.5, GHC==9.6.1
+             GHC==9.0.2, GHC==9.2.4, GHC==9.4.2
 
 Cabal-Version: >= 1.10.0
 Build-Type: Simple
@@ -36,7 +36,7 @@ Library
   if impl(ghc >= 7.5)
     Build-Depends: ghc-prim
   Hs-Source-Dirs: src
-  GHC-Options: -Wall
+  GHC-Options: -Wall -fPIC -dynamic-too
   Exposed-Modules:
     Data.BinaryWord
 

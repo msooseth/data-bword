@@ -215,7 +215,7 @@ instance BinaryWord Word32 where
   {-# INLINE unsignedWord #-}
   signedWord = fromIntegral
   {-# INLINE signedWord #-}
-#if __GLASGOW_HASKELL__ >= 705 && WORD_SIZE_IN_BITS == 32
+#if __GLASGOW_HASKELL__ >= 705 && __GLASGOW_HASKELL__ < 914 && WORD_SIZE_IN_BITS == 32
   unwrappedAdd (W32# x) (W32# y) = hi `seq` lo `seq` (hi, lo)
     where !(# hi', lo' #) = plusWord2# x y
           lo = W32# lo'
@@ -227,7 +227,7 @@ instance BinaryWord Word32 where
           hi = fromIntegral (shiftR s 32)
 #endif
   {-# INLINE unwrappedAdd #-}
-#if __GLASGOW_HASKELL__ >= 705 && WORD_SIZE_IN_BITS == 32
+#if __GLASGOW_HASKELL__ >= 705 && __GLASGOW_HASKELL__ < 914 && WORD_SIZE_IN_BITS == 32
   unwrappedMul (W32# x) (W32# y) = hi `seq` lo `seq` (hi, lo)
     where !(# hi', lo' #) = timesWord2# x y
           lo = W32# lo'
